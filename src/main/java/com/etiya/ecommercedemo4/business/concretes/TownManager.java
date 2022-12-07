@@ -32,18 +32,21 @@ private ModelMapperService modelMapper;
     @Override
     public AddTownResponse add(AddTownRequest addTownRequest) {
 
-        /*Town town = new Town();
-        town.setCity(this.cityService.getById((addTownRequest.getCityId())));
-        town.setName(addTownRequest.getName());*/
+
         Town town = this.modelMapper.forRequest().map(addTownRequest,Town.class);
         Town savedTown = this.townRepository.save(town);
         AddTownResponse response =this.modelMapper.forResponse().map(savedTown,AddTownResponse.class);
+        return response;
+
+         /*Town town = new Town();
+        town.setCity(this.cityService.getById((addTownRequest.getCityId())));
+        town.setName(addTownRequest.getName());*/
+
         /*AddTownResponse response = new AddTownResponse();
         response.setId(savedTown.getId());
         response.setName(savedTown.getName());
-        response.setCityName(savedTown.getCity().getName());*/
+        response.setCityName(savedTown.getCity().getName()); */
 
-        return response;
     }
 
     @Override

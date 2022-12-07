@@ -37,17 +37,19 @@ private ModelMapperService modelMapper;
     @Override
     public AddDistrictResponse add(AddDistrictRequest addDistrictRequest) {
 
-       /* District district = new District();
-        district.setName(addDistrictRequest.getName());
-        district.setTown(this.townService.getById(addDistrictRequest.getTownId()));*/
+
         District district = this.modelMapper.forRequest().map(addDistrictRequest,District.class);
         District savedDistrict = this.districtRepository.save(district);
         AddDistrictResponse response =this.modelMapper.forResponse().map(savedDistrict,AddDistrictResponse.class);
-       /* AddDistrictResponse response = new AddDistrictResponse();
+        return response;
+
+         /* District district = new District();
+        district.setName(addDistrictRequest.getName());
+        district.setTown(this.townService.getById(addDistrictRequest.getTownId())); */
+         /* AddDistrictResponse response = new AddDistrictResponse();
         response.setId(savedDistrict.getId());
         response.setTownName(savedDistrict.getTown().getName());
         response.setName(savedDistrict.getName());*/
 
-        return response;
     }
 }

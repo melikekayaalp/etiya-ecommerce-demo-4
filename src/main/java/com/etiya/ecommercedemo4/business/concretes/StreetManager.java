@@ -31,18 +31,20 @@ private ModelMapperService modelMapper;
 
     @Override
     public AddStreetResponse add(AddStreetRequest addStreetRequest) {
-      /*  Street street = new Street();
-        street.setName(addStreetRequest.getName());
-        street.setDistrict(this.districtService.getById((addStreetRequest.getDistrictId())));*/
+
         Street street = this.modelMapper.forRequest().map(addStreetRequest,Street.class);
         Street savedStreet = this.streetRepository.save(street);
         AddStreetResponse response = this.modelMapper.forResponse().map(savedStreet,AddStreetResponse.class);
+        return response;
+
+        /*  Street street = new Street();
+        street.setName(addStreetRequest.getName());
+        street.setDistrict(this.districtService.getById((addStreetRequest.getDistrictId())));*/
+
         /*AddStreetResponse response = new AddStreetResponse();
         response.setId(savedStreet.getId());
         response.setName(savedStreet.getName());
-        response.setDistrictName(savedStreet.getDistrict().getName());*/
-
-        return response;
+        response.setDistrictName(savedStreet.getDistrict().getName()); */
     }
 
     @Override

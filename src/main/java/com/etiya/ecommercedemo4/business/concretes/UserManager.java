@@ -27,20 +27,22 @@ private ModelMapperService modelMapper;
 
     @Override
     public AddUserResponse add(AddUserRequest addUserRequest) {
-       /* User user = new User();
-        user.setName(addUserRequest.getName());
-        user.setEmail(addUserRequest.getEmail());
-        user.setPhoneNumber(addUserRequest.getPhoneNumber());*/
+
         User user = this.modelMapper.forRequest().map(addUserRequest,User.class);
         User savedUser = this.userRepository.save(user);
         AddUserResponse response = this.modelMapper.forResponse().map(savedUser,AddUserResponse.class);
-       /* AddUserResponse response = new AddUserResponse();
+        return response;
+
+          /* User user = new User();
+        user.setName(addUserRequest.getName());
+        user.setEmail(addUserRequest.getEmail());
+        user.setPhoneNumber(addUserRequest.getPhoneNumber());*/
+
+         /* AddUserResponse response = new AddUserResponse();
         response.setEmail(savedUser.getEmail());
         response.setId(savedUser.getId());
         response.setPhoneNumber(savedUser.getPhoneNumber());
-        response.setName(savedUser.getName());*/
-
-        return response;
+        response.setName(savedUser.getName()); */
     }
 
     @Override

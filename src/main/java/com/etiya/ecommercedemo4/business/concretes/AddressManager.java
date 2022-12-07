@@ -83,7 +83,7 @@ private ModelMapperService modelMapperService;
         response.setDescription(savedAddress.getDescription());
         response.setUserName(savedAddress.getUser().getName());
         response.setAddressTypeName(savedAddress.getAddressType().getName());
-        response.setStreetName(savedAddress.getStreet().getName());*/
+        response.setStreetName(savedAddress.getStreet().getName()); */
 
     }
 

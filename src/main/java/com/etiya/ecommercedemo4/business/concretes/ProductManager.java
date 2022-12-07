@@ -64,15 +64,7 @@ public class ProductManager implements IProductService {
         checkIfCategoryExists(addProductRequest.getCategoryId());
         Category category = this.categoryService.getById(addProductRequest.getCategoryId());
 
-        //********MANUEL_MAPPING***********
 
-        /*
-        Product product = new Product();
-        product.setName(addProductRequest.getName());
-        product.setStock(addProductRequest.getStock());
-        product.setUnitPrice(addProductRequest.getUnitPrice());
-        product.setProductionDate(addProductRequest.getProductionDate());
-         */
 
         Product product = this.modelMapperService.forRequest().map(addProductRequest,Product.class);
         Product savedProduct = this.productRepository.save(product);

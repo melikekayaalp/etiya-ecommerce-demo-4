@@ -45,7 +45,7 @@ public class ProductCategoriesManager implements IProductCategoriesService {
         /*
         ProductCategories productCategories = new ProductCategories();
         productCategories.setCategory(this.categoryService.getById(addProductCategoriesRequest.getCategoryId()));
-        productCategories.setProduct(this.productService.getById(addProductCategoriesRequest.getProductId()));
+        productCategories.setProduct(this.productService.getById(addProductCategoriesRequest.getProductId())) ;
 
          */
 

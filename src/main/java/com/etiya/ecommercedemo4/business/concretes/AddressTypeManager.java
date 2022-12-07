@@ -35,7 +35,7 @@ public class AddressTypeManager implements IAddressTypeService {
     public AddAddressTypeResponse add(AddAddressTypeRequest addAddressTypeRequest) {
 
        // AddressType addressType = new AddressType();
-       // addressType.setName(addAddressTypeRequest.getName());
+       // addressType.setName(addAddressTypeRequest.getName() );
 
         AddressType addressType = modelMapper.forRequest().map(addAddressTypeRequest,AddressType.class);
         AddressType savedAddressType = this.addressTypeRepository.save(addressType);
